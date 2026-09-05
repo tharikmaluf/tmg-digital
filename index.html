@@ -1223,6 +1223,20 @@
       color: var(--sky-hover);
     }
 
+    @media (max-width: 767px) {
+      .cta-video-band {
+        background-image: url("https://images.pexels.com/photos/13223714/pexels-photo-13223714.jpeg?auto=compress&cs=tinysrgb&w=1600");
+        background-size: cover;
+        background-position: center;
+      }
+      .cta-video-band .cta-video-media {
+        background-color: transparent;
+      }
+      .cta-video-band .cta-video-bg {
+        display: none;
+      }
+    }
+
     /* Responsive Queries */
     @media (max-width: 900px) {
       .solar-section-head-flex {
@@ -1343,8 +1357,9 @@
           loop
           playsinline
           webkit-playsinline
-          preload="metadata"
+          preload="auto"
           poster="https://images.pexels.com/photos/13223714/pexels-photo-13223714.jpeg?auto=compress&cs=tinysrgb&w=1600">
+          <source media="(max-width: 767px)" src="https://videos.pexels.com/video-files/8853530/8853530-hd_1080_1920_24fps.mp4" type="video/mp4">
           <source src="https://videos.pexels.com/video-files/29941033/12849972_2560_1440_30fps.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -1683,7 +1698,7 @@
           loop
           playsinline
           webkit-playsinline
-          preload="metadata"
+          preload="auto"
           poster="https://images.pexels.com/photos/13223714/pexels-photo-13223714.jpeg?auto=compress&cs=tinysrgb&w=1600">
           <source src="https://videos.pexels.com/video-files/9790190/9790190-uhd_2560_1440_30fps.mp4" type="video/mp4">
         </video>
@@ -1882,34 +1897,52 @@
         });
       }
 
-      // 4. Mobile autoplay assurance for background videos
-      const bgVideos = document.querySelectorAll('.hero-video, .cta-video-bg');
+      // 4. Robust mobile autoplay engine for background videos
+      const bgVideos = document.querySelectorAll('video');
+
+      const attemptPlay = (video) => {
+        if (!video || !video.paused) return;
+        try {
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {});
+          }
+        } catch (_err) {}
+      };
+
+      const attemptPlayAll = () => {
+        bgVideos.forEach(v => attemptPlay(v));
+      };
+
       bgVideos.forEach((video) => {
-        // Enforce muted property programmatically
+        // Programmatic enforcement as extra insurance against strict mobile browser policies
         video.muted = true;
+        video.playsInline = true;
         video.defaultMuted = true;
 
-        const attemptPlay = () => {
-          if (!video.paused) return;
-          try {
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-              playPromise.catch(() => {
-                // Autoplay blocked by power-saving or platform policy;
-                // poster and solid container background remain visibly intact
-              });
-            }
-          } catch (_err) {
-            // Ignore synchronous invocation error
-          }
-        };
+        // Immediate play attempt
+        attemptPlay(video);
 
-        // Attempt immediate playback on load
-        attemptPlay();
+        // Retry when enough buffer data is loaded
+        video.addEventListener('canplay', () => attemptPlay(video), { once: true });
+        video.addEventListener('loadeddata', () => attemptPlay(video), { once: true });
+      });
 
-        // Retry play once video buffers enough data (handles iOS low data / deferred ready states)
-        video.addEventListener('canplay', () => attemptPlay(), { once: true });
-        video.addEventListener('loadeddata', () => attemptPlay(), { once: true });
+      // Retry on first user interaction anywhere on the screen
+      const interactionEvents = ['touchstart', 'click', 'scroll', 'keydown'];
+      const onFirstInteraction = () => {
+        attemptPlayAll();
+        interactionEvents.forEach(evt => window.removeEventListener(evt, onFirstInteraction));
+      };
+      interactionEvents.forEach(evt => {
+        window.addEventListener(evt, onFirstInteraction, { once: true, passive: true });
+      });
+
+      // Retry when document/tab becomes visible again
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          attemptPlayAll();
+        }
       });
     });
   </script>
