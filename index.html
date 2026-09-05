@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TMG Digital — Landing Page</title>
+  <link rel="icon" type="image/png" href="https://generated-images.adapta.one/tharik.maluf.gomes%40gmail.com/01a071f2-7644-752b-9d1e-0ccff985f9d6/2026-09-05T21-59-39-692Z_Original_user_intent_Tool_generated_image_directi.png">
   
   <!-- Basecoat CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basecoat-css@1.0.2/dist/basecoat.cdn.min.css">
@@ -80,8 +81,20 @@
       letter-spacing: -0.03em;
       display: inline-flex;
       align-items: center;
+      gap: 0.65rem;
       color: #ffffff;
       user-select: none;
+    }
+
+    .logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .logo .dot {
@@ -509,20 +522,13 @@
     }
 
     /* S.O.L.A.R. Framework Section */
-    .solar-section-head-flex {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2.5rem;
-      margin-bottom: 3.5rem;
+    .solar-section-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 2.25rem;
     }
 
-    .solar-section-head-text {
-      flex: 1;
-      max-width: 650px;
-    }
-
-    .solar-section-head-text h2 {
+    .solar-section-head h2 {
       font-size: 2.2rem;
       font-weight: 700;
       letter-spacing: -0.03em;
@@ -530,49 +536,27 @@
       color: #ffffff;
     }
 
-    .solar-section-head-text p {
+    .solar-section-head p {
       font-size: 1.08rem;
       color: var(--text-muted);
     }
 
-    .solar-head-media {
-      position: relative;
-      flex-shrink: 0;
-      width: 320px;
-      height: 180px;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
-    }
-
-    .solar-head-img {
+    .solar-framework-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 3.5rem;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+    }
+
+    .solar-framework-img {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
       display: block;
-      transition: transform 0.35s ease;
-    }
-
-    .solar-head-media:hover .solar-head-img {
-      transform: scale(1.05);
-    }
-
-    .solar-head-badge {
-      position: absolute;
-      bottom: 0.65rem;
-      left: 0.75rem;
-      right: 0.75rem;
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: #ffffff;
-      background: rgba(10, 31, 22, 0.88);
-      backdrop-filter: blur(6px);
-      padding: 0.3rem 0.65rem;
-      border-radius: 6px;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      text-align: center;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .solar-grid {
@@ -1090,102 +1074,79 @@
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
     }
 
-    .form-group {
-      margin-bottom: 1.25rem;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    label {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: #cde2d7;
-      margin-bottom: 0.4rem;
-    }
-
-    .required-star {
-      color: var(--accent);
-    }
-
-    .form-control {
-      width: 100%;
-      background-color: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.75rem 0.95rem;
-      color: #ffffff;
-      font-family: inherit;
-      font-size: 0.95rem;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--sky);
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
-    }
-
-    select.form-control {
-      cursor: pointer;
-    }
-
-    select.form-control option {
-      background-color: var(--surface);
-      color: #ffffff;
-    }
-
-    textarea.form-control {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    .form-checkbox-label {
+    .tally-card-inner {
       display: flex;
-      align-items: flex-start;
-      gap: 0.65rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      margin-top: 0.25rem;
-      line-height: 1.4;
+      flex-direction: column;
+      height: 100%;
     }
 
-    .form-checkbox-label input[type="checkbox"] {
-      margin-top: 0.15rem;
-      accent-color: var(--accent);
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
+    .tally-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(245, 185, 66, 0.1);
+      border: 1px solid rgba(245, 185, 66, 0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+      align-self: flex-start;
+    }
+
+    .tally-card-title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.85rem;
+    }
+
+    .tally-card-desc {
+      font-size: 0.98rem;
+      color: #cde2d7;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .tally-perks {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+      background: rgba(6, 22, 15, 0.6);
+      padding: 1.25rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .tally-perk-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      color: #eef7f2;
     }
 
     .form-submit-btn {
       width: 100%;
-      padding: 0.85rem;
+      padding: 0.95rem 1.5rem;
       font-size: 1.05rem;
-      margin-top: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .form-status {
-      margin-top: 1.2rem;
-      padding: 0.85rem 1rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      display: none;
-    }
-
-    .form-status.show {
-      display: block;
-    }
-
-    .form-status.demo-info {
-      background: rgba(245, 185, 66, 0.12);
-      border: 1px solid rgba(245, 185, 66, 0.35);
-      color: #fce7b2;
+    .tally-note {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
     }
 
     /* Footer */
@@ -1239,16 +1200,6 @@
 
     /* Responsive Queries */
     @media (max-width: 900px) {
-      .solar-section-head-flex {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
-      }
-      .solar-head-media {
-        width: 100%;
-        max-width: 480px;
-        height: 200px;
-      }
       .process-timeline {
         grid-template-columns: 1fr;
       }
@@ -1318,7 +1269,13 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="#" class="logo" aria-label="TMG Digital Home">
-        TMG<span class="dot">.</span><span class="digital">digital</span>
+        <img
+          src="https://generated-images.adapta.one/tharik.maluf.gomes%40gmail.com/01a071f2-7644-752b-9d1e-0ccff985f9d6/2026-09-05T21-59-39-692Z_Original_user_intent_Tool_generated_image_directi.png"
+          alt="TMG Digital"
+          class="logo-img"
+          width="38"
+          height="38">
+        <span>TMG<span class="dot">.</span><span class="digital">digital</span></span>
       </a>
 
       <nav class="nav-desktop" aria-label="Main Navigation">
@@ -1326,7 +1283,7 @@
         <a href="#solar">S.O.L.A.R.</a>
         <a href="#process">Process</a>
         <a href="#results">Results</a>
-        <a href="#contact" class="btn-cta">Book a call</a>
+        <a href="https://cal.com/tharik-maluf/30min" target="_blank" rel="noopener" class="btn-cta">Book a call</a>
       </nav>
 
       <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -1342,7 +1299,7 @@
       <a href="#solar" class="mobile-nav-link">S.O.L.A.R. Framework</a>
       <a href="#process" class="mobile-nav-link">Process</a>
       <a href="#results" class="mobile-nav-link">Results</a>
-      <a href="#contact" class="btn-cta mobile-nav-link">Book a call</a>
+      <a href="https://cal.com/tharik-maluf/30min" target="_blank" rel="noopener" class="btn-cta mobile-nav-link">Book a call</a>
     </div>
   </header>
 
@@ -1379,7 +1336,7 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#contact" class="btn-cta">Book a strategy call</a>
+          <a href="https://cal.com/tharik-maluf/30min" target="_blank" rel="noopener" class="btn-cta">Book a strategy call</a>
           <a href="#solar" class="btn-outline">See how I work</a>
         </div>
 
@@ -1467,22 +1424,19 @@
     <!-- S.O.L.A.R. Framework Section -->
     <section id="solar" class="section-spacing section-darker">
       <div class="container">
-        <div class="solar-section-head-flex">
-          <div class="solar-section-head-text">
-            <span class="section-label">Proprietary Framework</span>
-            <h2>The S.O.L.A.R. Growth Framework</h2>
-            <p>A battle-tested 5-pillar operational framework built specifically to scale clean energy companies sustainably.</p>
-          </div>
-          <div class="solar-head-media">
-            <img
-              src="https://images.pexels.com/photos/27863809/pexels-photo-27863809.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Residential home equipped with rooftop solar panels"
-              class="solar-head-img"
-              loading="lazy"
-              width="800"
-              height="500">
-            <span class="solar-head-badge">Clean Energy EPC Pipeline</span>
-          </div>
+        <div class="solar-section-head">
+          <span class="section-label">Proprietary Framework</span>
+          <h2>The S.O.L.A.R. Growth Framework</h2>
+          <p>A battle-tested 5-pillar operational framework built specifically to scale clean energy companies sustainably.</p>
+        </div>
+
+        <div class="solar-framework-visual">
+          <img
+            src="https://generated-images.adapta.one/tharik.maluf.gomes%40gmail.com/01a071f2-7644-752b-9d1e-0ccff985f9d6/2026-09-05T22-10-04-296Z_Original_user_intent_Tool_generated_image_directi.png"
+            alt="TMG Digital S.O.L.A.R. Growth Framework"
+            class="solar-framework-img"
+            loading="lazy"
+            width="900">
         </div>
 
         <div class="solar-grid">
@@ -1709,7 +1663,7 @@
         <span class="cta-video-label">Ready when you are</span>
         <h2 class="cta-video-title">Solar growth starts with a conversation.</h2>
         <p class="cta-video-desc">Let's build a predictable acquisition pipeline tailored to your commercial and residential target markets.</p>
-        <a href="#contact" class="btn-cta cta-video-btn">Book a strategy call</a>
+        <a href="https://cal.com/tharik-maluf/30min" target="_blank" rel="noopener" class="btn-cta cta-video-btn">Book a strategy call</a>
       </div>
     </section>
 
@@ -1747,66 +1701,39 @@
               </div>
             </div>
 
-            <a href="#lead-form" class="btn-cta">Book a strategy call directly</a>
+            <a href="https://cal.com/tharik-maluf/30min" target="_blank" rel="noopener" class="btn-cta">Book a strategy call directly</a>
           </div>
 
           <!-- Lead Form -->
           <div class="lead-form-box" id="lead-form">
-            <form id="growth-contact-form" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="lead-name">Name <span class="required-star">*</span></label>
-                  <input type="text" id="lead-name" class="form-control" placeholder="Jane Miller" required>
-                </div>
-                <div class="form-group">
-                  <label for="lead-email">Business Email <span class="required-star">*</span></label>
-                  <input type="email" id="lead-email" class="form-control" placeholder="jane@solarpower.com" required>
-                </div>
-              </div>
+            <div class="tally-card-inner">
+              <span class="tally-card-badge">⚡ Quick Intake Questionnaire</span>
+              <h3 class="tally-card-title">Prefer to share your numbers first?</h3>
+              <p class="tally-card-desc">
+                Fill out our brief 60-second assessment so we can review your current cost per acquisition, installation capacity, and target territories before our strategy session.
+              </p>
 
-              <div class="form-group">
-                <label for="lead-company">Company</label>
-                <input type="text" id="lead-company" class="form-control" placeholder="SunPath Solar Solutions">
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="lead-market">Primary Market</label>
-                  <select id="lead-market" class="form-control">
-                    <option value="United States">United States</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Australia">Australia</option>
-                    <option value="Other">Other</option>
-                  </select>
+              <div class="tally-perks">
+                <div class="tally-perk-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--sky);"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>100% confidential &amp; bespoke solar growth analysis</span>
                 </div>
-
-                <div class="form-group">
-                  <label for="lead-installations">Installations per Month</label>
-                  <select id="lead-installations" class="form-control">
-                    <option value="0-10">0–10 installs</option>
-                    <option value="11-30">11–30 installs</option>
-                    <option value="31-50">31–50 installs</option>
-                    <option value="50+">50+ installs</option>
-                  </select>
+                <div class="tally-perk-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--sky);"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Takes 60 seconds — no login or signup needed</span>
+                </div>
+                <div class="tally-perk-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--sky);"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Direct founder response within 24 hours</span>
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="lead-challenge">Biggest Growth Challenge</label>
-                <textarea id="lead-challenge" class="form-control" placeholder="e.g., Lead quality from third parties is deteriorating, high acquisition costs in Texas territory..."></textarea>
-              </div>
+              <a href="https://tally.so/r/44672B" target="_blank" rel="noopener" class="btn-cta form-submit-btn">
+                Request My Strategy Call
+              </a>
 
-              <div class="form-group">
-                <label class="form-checkbox-label" for="lead-consent">
-                  <input type="checkbox" id="lead-consent" required>
-                  <span>I agree to receive communications regarding my solar growth strategy consultation request. <span class="required-star">*</span></span>
-                </label>
-              </div>
-
-              <button type="submit" class="btn-cta form-submit-btn">Request my strategy call</button>
-
-              <div id="form-status" class="form-status" role="alert"></div>
-            </form>
+              <p class="tally-note">Takes 60 seconds — I'll reply within 24 hours.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1858,46 +1785,7 @@
         });
       }
 
-      // 3. Demo Form submission handler
-      // NOTE FOR PRODUCTION: Replace this simulated handler with your HubSpot, Tally, or webhook endpoint.
-      const form = document.getElementById('growth-contact-form');
-      const statusBox = document.getElementById('form-status');
-
-      if (form && statusBox) {
-        form.addEventListener('submit', (e) => {
-          e.preventDefault();
-
-          const name = document.getElementById('lead-name');
-          const email = document.getElementById('lead-email');
-          const consent = document.getElementById('lead-consent');
-
-          // Basic HTML5 validation trigger check
-          if (!name.value.trim()) {
-            name.focus();
-            return;
-          }
-          if (!email.value.trim() || !email.validity.valid) {
-            email.focus();
-            return;
-          }
-          if (!consent.checked) {
-            consent.focus();
-            return;
-          }
-
-          // Show demo feedback message as requested in prompt:
-          statusBox.className = 'form-status show demo-info';
-          statusBox.textContent = 'Thanks! Form handling is not connected yet. Replace this with your HubSpot/Tally embed before going live.';
-
-          // Clear form fields
-          form.reset();
-
-          // Smoothly ensure message is in view
-          statusBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        });
-      }
-
-      // 4. Robust mobile autoplay engine for background videos
+      // 3. Robust mobile autoplay engine for background videos
       const bgVideos = document.querySelectorAll('video');
 
       const attemptPlay = (video) => {
